@@ -1,0 +1,47 @@
+:root{--red:#E8202A;--blue:#1B4DA6;--bg:#F6F8FC;--card:#fff;--text:#1a2236;--muted:#5d6a85;--line:#e3e8f2;--ok:#0f8a4b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1524;--card:#18203a;--text:#eef1f8;--muted:#a3aecb;--line:#2a3558;--blue:#6C98F0;--ok:#4cd08a}}
+:root[data-theme="dark"]{--bg:#0f1524;--card:#18203a;--text:#eef1f8;--muted:#a3aecb;--line:#2a3558;--blue:#6C98F0;--ok:#4cd08a}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+.top{width:100%;height:6px;background:linear-gradient(90deg,var(--red) 50%,#1B4DA6 50%)}
+header{text-align:center;padding:22px 16px 6px;max-width:640px;width:100%}
+.logo{background:#fff;border-radius:16px;padding:10px 18px;display:inline-block;box-shadow:0 4px 16px rgba(27,77,166,.12)}
+.logo img{display:block;width:min(240px,62vw);height:auto}
+h1{font-size:clamp(1.15rem,4.6vw,1.6rem);font-weight:800;line-height:1.3;margin:18px 0 6px;color:var(--blue)}
+h1 span{color:var(--red)}
+.sub{margin:0;color:var(--muted);font-size:.85rem;font-weight:600}
+main{width:100%;max-width:520px;padding:18px 16px 28px;flex:1}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 18px;box-shadow:0 8px 28px rgba(27,77,166,.10)}
+label{display:block;font-weight:700;font-size:.95rem;margin-bottom:10px;text-align:center}
+input{width:100%;font:inherit;font-size:1.25rem;font-weight:700;letter-spacing:.08em;text-align:center;padding:14px 12px;border:2px solid var(--line);border-radius:14px;background:var(--bg);color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
+input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(27,77,166,.15)}
+input::placeholder{color:var(--muted);opacity:.6;font-weight:500;letter-spacing:.02em;font-size:1rem}
+button{font:inherit;font-weight:800;cursor:pointer;border:0;border-radius:14px;padding:14px 18px;width:100%;transition:transform .1s,filter .2s}
+button:active{transform:scale(.98)}
+.primary{background:var(--red);color:#fff;font-size:1.05rem;margin-top:14px;box-shadow:0 6px 16px rgba(232,32,42,.30)}
+.primary:hover{filter:brightness(1.07)}
+.ghost{background:transparent;color:var(--blue);border:2px solid var(--blue);margin-top:16px}
+.msg{display:none;margin-top:14px;padding:12px 14px;border-radius:12px;font-size:.9rem;font-weight:600;text-align:center;line-height:1.5}
+.msg.show{display:block;animation:rise .35s ease both}
+.msg.err{background:rgba(232,32,42,.10);color:var(--red);border:1px solid rgba(232,32,42,.35)}
+:root[data-theme="dark"] .msg.err{color:#ff7b82}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .msg.err{color:#ff7b82}}
+.result{display:none;margin-top:18px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.result.show{display:block;animation:rise .45s ease both}
+.rh{background:linear-gradient(135deg,var(--blue),#123a80);color:#fff;text-align:center;padding:14px 12px;font-weight:700;font-size:.9rem;letter-spacing:.03em}
+.rh small{display:block;opacity:.8;font-weight:600;margin-top:2px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--line)}
+.row span{color:var(--muted);font-weight:600;font-size:.88rem}
+.row b{font-size:1.15rem;font-weight:800}
+.row.big b{font-size:1.6rem;color:var(--red)}
+.row.score b{color:var(--blue)}
+.cong{padding:18px;text-align:center;font-size:.92rem;line-height:1.65;background:rgba(15,138,75,.08)}
+.cong strong{display:block;color:var(--ok);font-size:1.05rem;margin-bottom:6px}
+.note{margin:18px 4px 0;text-align:center;font-size:.75rem;color:var(--muted);line-height:1.6}
+footer{width:100%;text-align:center;padding:14px 16px 22px;font-size:.78rem;color:var(--muted);font-weight:600}
+footer b{color:var(--red)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
